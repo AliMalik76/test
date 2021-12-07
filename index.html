@@ -19,13 +19,13 @@
 
     <script>
         // addEventListener support for IE8
-//         function bindEvent(element, eventName, eventHandler) {
-//             if (element.addEventListener) {
-//                 element.addEventListener(eventName, eventHandler, false);
-//             } else if (element.attachEvent) {
-//                 element.attachEvent('on' + eventName, eventHandler);
-//             }
-//         }
+        function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener) {
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
         
         
 
@@ -44,16 +44,16 @@
 //         })
 //         } 
         
-          window.attachEvent('on' + 'message' , function (e) {
-            results.innerHTML = e.data;
-        })
+//           window.attachEvent('on' + 'message' , function (e) {
+//             results.innerHTML = e.data;
+//         })
         
 //         listenToParent();
 
-        // Listen to messages from parent window
-//         bindEvent(window, 'message', function (e) {
-//             results.innerHTML = e.data;
-//         });
+       // Listen to messages from parent window
+        bindEvent(window, 'message', function (e) {
+            results.innerHTML = e.data;
+        });
 
         // Send random message data on every button click
 //         bindEvent(messageButton, 'click', function (e) {
