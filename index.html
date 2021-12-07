@@ -38,13 +38,17 @@
         var results = document.getElementById('results'),
             messageButton = document.getElementById('message_button');
         
-        function listenToParent(){
-            window.attachEvent('on' + 'message' , function (e) {
+//         function listenToParent(){
+//             window.attachEvent('on' + 'message' , function (e) {
+//             results.innerHTML = e.data;
+//         })
+//         } 
+        
+          window.attachEvent('on' + 'message' , function (e) {
             results.innerHTML = e.data;
         })
-        } 
         
-        listenToParent();
+//         listenToParent();
 
         // Listen to messages from parent window
 //         bindEvent(window, 'message', function (e) {
