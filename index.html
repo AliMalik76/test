@@ -20,12 +20,12 @@
     <script>
         // addEventListener support for IE8
         function bindEvent(element, eventName, eventHandler) {
-//             if (element.addEventListener) {
-//                 element.addEventListener(eventName, eventHandler, false);
-//             } else if (element.attachEvent) {
-//                 element.attachEvent('on' + eventName, eventHandler);
-//             }
-            element.attachEvent('on' + eventName, eventHandler);
+            if (element.addEventListener) {
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+            
         }
         
         
@@ -39,17 +39,7 @@
         var results = document.getElementById('results'),
             messageButton = document.getElementById('message_button');
         
-//         function listenToParent(){
-//             window.attachEvent('on' + 'message' , function (e) {
-//             results.innerHTML = e.data;
-//         })
-//         } 
-        
-//           window.attachEvent('on' + 'message' , function (e) {
-//             results.innerHTML = e.data;
-//         })
-        
-//         listenToParent();
+
 
        // Listen to messages from parent window
         bindEvent(window, 'message', function (e) {
