@@ -27,13 +27,7 @@
 //             }
 //         }
         
-        function listenToParent(){
-            window.attachEvent('on' + 'message' , function (e) {
-            results.innerHTML = e.data;
-        })
-        } 
         
-        listenToParent();
 
         // Send a message to the parent
         var sendMessage = function (msg) {
@@ -43,6 +37,14 @@
 
         var results = document.getElementById('results'),
             messageButton = document.getElementById('message_button');
+        
+        function listenToParent(){
+            window.attachEvent('on' + 'message' , function (e) {
+            results.innerHTML = e.data;
+        })
+        } 
+        
+        listenToParent();
 
         // Listen to messages from parent window
 //         bindEvent(window, 'message', function (e) {
